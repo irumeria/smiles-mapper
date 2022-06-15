@@ -10,7 +10,7 @@
 ```
  + First, the **examples.csv** in folder "assets" will be read.
  + Then, **output.json** from decoder will be generated, containing the data of map structure like this:
-  ```json
+  ```js
   // in output.json
     "7": [  // The 7th smiles in example.csv
         {
@@ -43,7 +43,7 @@
         ...
   ```
  + Finally, **result.json** will be generated. This is the output of encoder, which take output.json as its input.
-```json
+```js
   // in result.json
   {
     "1": "CCCCC(CC)OCC",
