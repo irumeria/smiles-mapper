@@ -1,0 +1,9 @@
+smiles(芳香环写成 c 而不是CC=C 这样的单双键交错，不然键类型不会被判断成大PI键)
+CCCCC(CC)OCC
+CCOCc1ccccc1CC
+CCOCc1cccc(c1)CC
+CCOCCCNc1cc(C)ccc1N
+c1ccc2c(c1)cccc2
+C[13C]OCC[Fe]CC(SCC[Mn]C)CS[OH3+]
+C[Mn]CC(C(C=S)[Fe]CCC=O)SC
+
