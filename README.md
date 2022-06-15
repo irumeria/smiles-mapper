@@ -58,7 +58,7 @@
 
 ## Improvement
 
-+ The signals **\ & @** are not already supported
++ The signals **\ and @** are not already supported
 
 ## Announce
 
