@@ -60,6 +60,6 @@
 
 + The signals **\ and @** are not already supported
 
-## Announce
+## Announcement
 
-+ **DO NOT** use this code in your paper, it is for study and still under testing
++ **DO NOT** use this code in your paper, it is for learning and still under testing
