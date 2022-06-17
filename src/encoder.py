@@ -4,6 +4,7 @@ import pandas as pd
 import re
 from collections import deque
 import copy
+from itertools import combinations
 
 # 对所有可能为主链端点的节点作组合
 def combine(org, n):
@@ -162,8 +163,32 @@ def build_brunch(nodeMap, chainMap):
     return smiles, smileIndexs
 
 
-def map_to_smiles(nodeMap):
-    mainChain = search_main_chain(nodeMap, 0, len(nodeMap)-1)
+def map_to_smiles(nodeMap,autoSearch=False):
+    '''
+    将分子结构图转化为smiles
+    '''
+
+    mainChain = []    
+    if autoSearch == True:
+        Endpoints = []
+        for node in nodeMap:
+            if len(node['neighbors']) == 1:
+                Endpoints.append(node['index'])
+        if len(Endpoints) <= 1:
+            for node in nodeMap:
+                if len(node['neighbors']) == 2:
+                    Endpoints.append(node['index'])
+    
+        print(Endpoints)
+        EndpointsCombi = combine(Endpoints, 2)
+        print(EndpointsCombi)
+
+        for (begin,end) in EndpointsCombi:
+            newMainChain = search_main_chain(nodeMap, begin, end)
+            if len(newMainChain) > len(mainChain):
+                mainChain = newMainChain
+    else:
+        mainChain = search_main_chain(nodeMap, 0, len(nodeMap)-1)
     # 插入支链
     chainMap = {}
     baseChain = copy.deepcopy(mainChain)
