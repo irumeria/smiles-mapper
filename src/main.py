@@ -29,12 +29,12 @@ def test_encoder():
 
 def test_decoder():
     smiles = np.array(load_smiles_from_csv("./assets/examples.csv", 120))
-    print(smiles)
+    # print(smiles)
     nodeMaps = {}
     counter = 0
     for sm in smiles:
         counter += 1
-        print(sm)
+        # print(sm)
         nodeMaps[str(counter)] = smiles_to_map(sm)
     with open('output.json', 'w',encoding='UTF-8') as f:
         f.write(json.dumps(nodeMaps, ensure_ascii=False))

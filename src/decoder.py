@@ -3,7 +3,7 @@ import json
 import pandas as pd
 import re
 
-# TODO: 1. 双键有另外一般忘记加了...  2.支持手性符号的解析 \ & @
+# TODO:  1.支持手性符号的解析 \ & @
 
 
 def smiles_to_map(smiles):
@@ -14,10 +14,17 @@ def smiles_to_map(smiles):
     def piBondConveter(nodeMap):
         for node in nodeMap:
             for neighbor in node['neighbors']:
+                
                 neighbor['atom'] = nodeMap[int(
                     neighbor['index'])]['atom']  # 动点手脚，顺便加个atom属性
                 if neighbor['atom'] == node['atom'] == 'c':
                     neighbor['bond'] = 4  # 更改为大PI键
+                
+                if neighbor['bond'] != 1: # 由于我奇怪的history机制，双键只加到了后面的那个原子上面...
+                    for neigh in nodeMap[neighbor['index']]['neighbors']:
+                        if neigh['index'] == node['index']:
+                            neigh['bond'] = neighbor['bond']
+                            
         return nodeMap
 
     def buildNode(smChar, index, preIndex, i, smiles, historyBox):
@@ -93,7 +100,7 @@ def smiles_to_map(smiles):
             # preIndex = loopHeader
         elif re.match(r"[)]", smChar):
             # 分支头 前面一个原子的 nodeMap序号 应为 "(" 的前一个
-            print(nodeMap[preIndex], index)
+            # print(nodeMap[preIndex], index)
             for x in nodeMap[preIndex]['neighbors']:
                 if x['index'] == index:
                     nodeMap[preIndex]['neighbors'].remove(x)
