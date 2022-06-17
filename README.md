@@ -45,14 +45,15 @@
  + Finally, **result.json** will be generated. This is the output of encoder, which take output.json as its input.
 ```js
   // in result.json
-  {
+{
     "1": "CCCCC(CC)OCC",
     "2": "CCOCc1ccccc1CC",
     "3": "CCOCc1cccc(c1)CC",
     "4": "CCOCCCNc1cc(C)ccc1N",
     "5": "c2ccc1c(c2)cccc1",
     "6": "C[13C]OCC[Fe]CC(SCC[Mn]C)CS[OH3+]",
-    "7": "C[Mn]CC(C(C=S)[Fe]CCC=O)SC"
+    "7": "C[Mn]CC(C(C=S)[Fe]CCC=O)SC",
+    "8": "c4cc1CCc2c3c1c(c4)CCc3ccc2"
 }
 ```
 
