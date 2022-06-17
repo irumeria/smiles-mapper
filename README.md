@@ -42,7 +42,7 @@
         },
         ...
   ```
- + Finally, **result.json** will be generated. This is the output of encoder, which take output.json as its input.
+ + Finally, **result.json** will be generated. This is the output of the encoder, which takes output.json as its input.
 ```js
   // in result.json
 {

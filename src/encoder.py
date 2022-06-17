@@ -5,16 +5,24 @@ import re
 from collections import deque
 import copy
 
-# 广度优先搜索--分形版
-# 分子结构相当于一个有环无向图
-# 使用迭代次数来解决循环问题
-# 记录历史来防止往回走
-# 最重要的是：把search_queue里面每个节点都和到达它的时候经过的历史节点数组绑定在一起,做出 path
-# 因为这里搜索主链，要找的应该是最长的，因此必须等search_queue搜索结束
-# 然后对比每一个能到达目标节点的path，设最长那一条为主链
+# 对所有可能为主链端点的节点作组合
+def combine(org, n):
+    '''根据n获得列表中的所有可能组合(n个元素为一组)'''
+    ret = []
+    for c in combinations(org, n):
+        ret.append(c)
+    return ret
+
 
 
 def search_main_chain(nodeMap, startIndex, endIndex):
+    '''
+    基于广度优先搜索的算法
+    分子结构相当于一个无向图
+    记录历史来防止往回走,search_queue里面每个节点都和到达它的时候经过的历史节点数组绑定在一起,做出 path
+    这里搜索主链，要找的应该是最长的,因此必须等search_queue搜索结束
+    然后对比每一个能到达目标节点的path,设最长那一条为主链
+    '''
     search_queue = []
     init_path = []
     init_path.append(startIndex)
@@ -42,13 +50,14 @@ def search_main_chain(nodeMap, startIndex, endIndex):
     else:  # 没有到达目的地的路径
         return []
 
-# 迭代找出所有支链/支链的支莲/...的函数
-# 支链有两个东西标志尽头，一个是只有一个邻原子，另外一个是回到 baseChain 上
-# baseChain 一开始是主链，迭代一遍之后变成主链+次级支链，以此类推
-# startIndex： 从baseChain上某个节点开始搜索支链
-
 
 def search_chain_iterative(nodeMap, baseChain, startIndex):
+    '''
+    迭代找出所有支链/支链的支莲/...的函数
+    支链有两个东西标志尽头，一个是只有一个邻原子，另外一个是回到 baseChain 上
+    baseChain: 一开始是主链，迭代一遍之后变成主链+次级支链，以此类推
+    startIndex: 从baseChain上某个节点开始搜索支链
+    '''
     loopers = []  # 记录分子中的环
     chainMap = {}
     search_queue = []
@@ -116,10 +125,13 @@ def search_chain_iterative(nodeMap, baseChain, startIndex):
 
     return chainMap, baseChain, loopers
 
-# 利用 chainMap 记录的内容，递归地将所有支链整合进smiles字符数组内
+
 
 
 def build_brunch(nodeMap, chainMap):
+    '''
+    利用 chainMap 记录的内容，递归地将所有支链整合进smiles字符数组内
+    '''
     smiles = []
     smileIndexs = []
     for key in chainMap:
