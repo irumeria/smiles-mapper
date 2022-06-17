@@ -62,10 +62,10 @@
 # in main.py
 
 # default: 0 and the last index of the map will be taken as the endpoints of main chain
-smilesJSON[counter] = map_to_smiles(nodeMap)
+map_to_smiles(nodeMap)
 
 # search the main chain in the map Automatically
-smilesJSON[counter] = map_to_smiles(nodeMap,autoSearch=True)
+map_to_smiles(nodeMap,autoSearch=True)
 
 ```
 
