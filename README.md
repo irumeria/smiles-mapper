@@ -57,6 +57,19 @@
 }
 ```
 
+## Encoder config
+```python
+# in main.py
+
+# default: 0 and the last index of the map will be taken as the endpoints of main chain
+smilesJSON[counter] = map_to_smiles(nodeMap)
+
+# search the main chain in the map Automatically
+smilesJSON[counter] = map_to_smiles(nodeMap,autoSearch=True)
+
+```
+
+
 ## Improvement
 
 + The signals **\ and @** are not already supported
