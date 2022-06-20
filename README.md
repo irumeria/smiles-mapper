@@ -5,7 +5,7 @@
 
 + What is <a href="https://en.wikipedia.org/wiki/SMILES">SMILES</a>
 
-<img height=400 src="https://upload.wikimedia.org/wikipedia/commons/0/00/SMILES.png"/>
+<img height=450 src="https://upload.wikimedia.org/wikipedia/commons/0/00/SMILES.png"/>
 
 ## Usage
 
