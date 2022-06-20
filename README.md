@@ -69,7 +69,7 @@
 # default: 0 and the last index of the map will be taken as the endpoints of main chain
 map_to_smiles(nodeMap)
 
-# search the main chain in the map Automatically
+# search the main chain in the map Automatically, equivalent representation may be generated
 map_to_smiles(nodeMap,autoSearch=True)
 
 ```
