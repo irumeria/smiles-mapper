@@ -1,6 +1,4 @@
-import numpy as np
 import json
-import pandas as pd
 import re
 
 # TODO:  1.支持手性符号的解析 \ & @
@@ -8,7 +6,7 @@ import re
 
 def smiles_to_map(smiles):
 
-    smiles = np.array(list(smiles))  # string 转 numpy char array
+    smiles = list(smiles)  # string 转 numpy char array
 
     # 这个函数不太优雅.
     def piBondConveter(nodeMap):
