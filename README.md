@@ -1,6 +1,11 @@
 # SMILES Mapper
 
-## convert SMILES to map structure, or convert the map structure to SMILES
+## Description
++ convert SMILES to map structure, or convert the map structure to SMILES
+
++ What is <a href="https://bs.wikipedia.org/wiki/SMILES">SMILES</a>
+
+<img height=400 src="https://upload.wikimedia.org/wikipedia/commons/0/00/SMILES.png"/>
 
 ## Usage
 
